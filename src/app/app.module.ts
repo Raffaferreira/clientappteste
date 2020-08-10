@@ -9,7 +9,8 @@ import { PessoaComponent } from './views/cadastro/pessoa/pessoa.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { RelatoriosComponent } from './views/relatorios/relatorios/relatorios.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatAutoCompleteModule } from '@angular/material';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+import { JwPaginationModule } from 'jw-angular-pagination';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MatAutoCompleteModule } from '@angular/material';
     FormsModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
-    MatAutoCompleteModule
+    AutocompleteLibModule,
+    JwPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

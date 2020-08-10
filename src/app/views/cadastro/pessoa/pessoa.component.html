@@ -56,7 +56,7 @@
               </div>
               <div class="form-group">
                 <label for="price">Ativo</label>
-                <input type="checkbox" [(ngModel)]="pessoa.enabled" id="ativo" name="ativo" #price="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }">
+                <input type="checkbox" [(ngModel)]="pessoa.ativo" id="ativo" name="ativo" #price="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }">
                 <div *ngIf="f.submitted && price.invalid" class="invalid-feedback">
                     <div *ngIf="price.errors.required">Status é obrigatório</div>
                 </div>

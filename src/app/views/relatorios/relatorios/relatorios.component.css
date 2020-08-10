@@ -13,3 +13,13 @@
 .btn-add-pessoa {
     margin-right: 10px;
 }
+
+.dropdown-type-filter {
+    width: 130px;
+    border-radius: 4px;
+    height: 25px
+}
+
+.ng-autocomplete {
+    width: 400px;
+}

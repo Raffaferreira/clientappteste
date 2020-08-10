@@ -2,11 +2,35 @@
     <ol class="breadcrumb">
       <li class="breadcrumb-item active" aria-current="page">Gerenciamento de Pessoas - Dashboard</li>
     </ol>
-  </nav>
-  <div class="container">
+</nav>
+<div class="container">
     <div class="card list-pessoa">
       <h5 class="card-header">Relatório de Pessoas</h5>
       <div class="card-body">
+
+        <label for="model"> Filtrar por: </label>
+        <div>
+          <select class="dropdown-type-filter" [(ngModel)]="keyword">
+            <option *ngFor="let filtros of keywords" [value]="filtros">
+              {{ filtros }}
+            </option>
+          </select>
+        </div>
+
+        <div class="ng-autocomplete">
+          <ng-autocomplete [data]="pessoas" [searchKeyword]="keyword" 
+          [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate" 
+          placeholder="Digite o nome aqui..">
+        </ng-autocomplete>
+      </div>
+          <ng-template #itemTemplate let-item>
+          <a [innerHTML]="item.nome"></a>
+          </ng-template>
+           
+          <ng-template #notFoundTemplate let-notFound>
+          <div [innerHTML]="notFound"></div>
+          </ng-template>
+
         <table class="table">
             <thead>
               <tr>
@@ -20,7 +44,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let pessoa of pessoas | paginate: { itemsPerPage: contador, currentPage: pag }">
+              <tr *ngFor="let pessoa of pessoas">
                 <td>{{ pessoa.nome }}</td>
                 <td>{{ pessoa.data | date: 'dd/MM/yyyy' }}</td>
                 <td>{{ pessoa.idade }}</td>
@@ -37,9 +61,6 @@
               </tr>
             </tbody>
           </table>
-      </div>
-      <div class="text-right">
-        <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
     </div>
     <div class="container">
@@ -102,4 +123,4 @@
           </form>
       </div>
     </div>
-  </div>
+</div>

@@ -3,6 +3,7 @@ import { Pessoa } from 'src/app/model/relatorios';
 import { RelatoriosService } from 'src/app/services/relatorios.service';
 import { CadastroService } from 'src/app/services/cadastro.service';
 import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-relatorios',
@@ -11,11 +12,16 @@ import { NgForm } from '@angular/forms';
 })
 export class RelatoriosComponent implements OnInit {
 
+  items = [];
+  pageOfItems: Array<Pessoa>;
+  pageSize : Number = 5;
+
+  public keyword = "nome";
+  public keywords = [ "nome", "email", "habilidades", "sexo"];
   pessoa = {} as Pessoa;
   pessoas: Pessoa[];
   pessoaExcluida: boolean
-  pag : Number = 1 ;
-  contador : Number = 5;
+  pag : Number = 1;
   sexos = ['Masculino', 'Feminino']
 
   constructor(private relatorioService: RelatoriosService,
@@ -23,6 +29,12 @@ export class RelatoriosComponent implements OnInit {
 
   ngOnInit() {
     this.buscarPessoas();
+    this.items = Array(this.pesssoas).fill(0).map((x, i) => ({ id: (i + 1)}));
+  }
+
+  onChangePage(pageOfItems: Array<Pessoa>) {
+    // update current page of items
+    this.pageOfItems = pageOfItems;
   }
 
   buscarPessoas(){
