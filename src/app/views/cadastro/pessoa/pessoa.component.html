@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AngularHttp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+  crossorigin="anonymous">
+</head>
+<body>
+    <div class="card add-pessoa">
+        <h5 class="card-header">Adicionar Pessoa</h5>
+        <div class="card-body">
+            <form id="add-form" (ngSubmit)="f.form.valid && adicionarPessoa(f)" #f="ngForm" novalidate>
+              <div class="form-group">
+                  <label for="model">Nome</label>
+                  <input type="text" [(ngModel)]="pessoa.nome" id="nome" name="nome" #model="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && model.invalid }" placeholder="Digite seu nome">
+                  <div *ngIf="f.submitted && model.invalid" class="invalid-feedback">
+                    <div *ngIf="model.errors.required">Nome é obrigatório</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="color">Data Nascimento</label>
+                  <input type="date" [(ngModel)]="pessoa.data" id="datanascimento" name="datanascimento" #color="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && color.invalid }" placeholder="Digite sua data de nascimento">
+                  <div *ngIf="f.submitted && color.invalid" class="invalid-feedback">
+                    <div *ngIf="color.errors.required">Data é obrigatória</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="price">Idade</label>
+                  <input type="number" [(ngModel)]="pessoa.idade" id="idade" name="idade" #price="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }" placeholder="Digite sua idade">
+                  <div *ngIf="f.submitted && price.invalid" class="invalid-feedback">
+                      <div *ngIf="price.errors.required">Idade é obrigatório</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                <label for="price">E-mail</label>
+                <input type="email" [(ngModel)]="pessoa.email" id="email" name="email" placeholder="Digite o e-mail">          
+              </div>
+              <div class="form-group">
+                <label for="price">Sexo</label>
+                <input type="text" [(ngModel)]="pessoa.sexo" id="sexo" name="sexo" #price="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }" placeholder="Selecione seu sexo">
+                <div *ngIf="f.submitted && price.invalid" class="invalid-feedback">
+                    <div *ngIf="price.errors.required">Sexo é obrigatório</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="price">Habilidades</label>
+                <input type="text" [(ngModel)]="pessoa.habilidades" id="habilidades" name="habilidades" #price="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }" placeholder="Suas habilidades ( Ex:C#, Java, Angular, SQL, ASP)">
+                <div *ngIf="f.submitted && price.invalid" class="invalid-feedback">
+                  <div *ngIf="price.errors.required">Habilidades é obrigatório</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="price">Ativo</label>
+                <input type="checkbox" [(ngModel)]="pessoa.enabled" id="ativo" name="ativo" #price="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }">
+                <div *ngIf="f.submitted && price.invalid" class="invalid-feedback">
+                    <div *ngIf="price.errors.required">Status é obrigatório</div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-add-pessoa">Salvar</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" 
+  crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+  integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
+
+

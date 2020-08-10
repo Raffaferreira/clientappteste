@@ -3,8 +3,21 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  localhost: {
+    url: 'localhost:61419'
+  }
 };
+
+export const endpoints = {
+  pessoas: window.location.protocol + '//'+ environment.localhost.url + '/api/v1/pessoas/'
+};
+
+export const methods = {
+  cadastrar: endpoints.pessoas + 'cadastrar',
+  listadepessoas: endpoints.pessoas + 'getpessoas',
+  deletarpessoa: endpoints.pessoas + 'deletar'
+}
 
 /*
  * For easier debugging in development mode, you can import the following file
