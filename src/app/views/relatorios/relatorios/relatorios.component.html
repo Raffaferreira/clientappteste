@@ -44,7 +44,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let pessoa of pessoas">
+              <tr *ngFor="let pessoa of pessoas | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index">
                 <td>{{ pessoa.nome }}</td>
                 <td>{{ pessoa.data | date: 'dd/MM/yyyy' }}</td>
                 <td>{{ pessoa.idade }}</td>
@@ -60,6 +60,7 @@
                 </td>
               </tr>
             </tbody>
+            <pagination-controls (pageChange)="paginaAtual = $event"></pagination-controls>
           </table>
       </div>
     </div>

@@ -12,10 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class RelatoriosComponent implements OnInit {
 
-  items = [];
-  pageOfItems: Array<Pessoa>;
-  pageSize : Number = 5;
-
+  public paginaAtual = 1; 
   public keyword = "nome";
   public keywords = [ "nome", "email", "habilidades", "sexo"];
   pessoa = {} as Pessoa;
@@ -29,12 +26,6 @@ export class RelatoriosComponent implements OnInit {
 
   ngOnInit() {
     this.buscarPessoas();
-    this.items = Array(this.pesssoas).fill(0).map((x, i) => ({ id: (i + 1)}));
-  }
-
-  onChangePage(pageOfItems: Array<Pessoa>) {
-    // update current page of items
-    this.pageOfItems = pageOfItems;
   }
 
   buscarPessoas(){
