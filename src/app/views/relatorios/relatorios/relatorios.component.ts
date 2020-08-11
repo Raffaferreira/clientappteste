@@ -20,7 +20,9 @@ export class RelatoriosComponent implements OnInit {
   pessoas: Pessoa[];
   pessoaExcluida: boolean
   pag : Number = 1;
-  sexos = ['Masculino', 'Feminino']
+  sexos = [
+    { id: 1, name: "Masculino" },
+    { id: 2, name: "Feminino" }]
 
   constructor(private relatorioService: RelatoriosService,
     private cadastroService: CadastroService,

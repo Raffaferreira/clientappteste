@@ -12,6 +12,10 @@ export class AtualizarComponent implements OnInit{
 
   pessoas: Pessoa[];
   pessoa: Pessoa;
+  sexos = [
+    { id: 1, name: "Masculino" },
+    { id: 2, name: "Feminino" }]
+
   constructor(public modal: NgbActiveModal,
     private cadastroService: CadastroService) { }
   

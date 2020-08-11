@@ -101,10 +101,14 @@
             </div>
             <div class="form-group">
               <label for="price">Sexo</label>
-              <input type="text" [(ngModel)]="pessoa.sexo" id="sexo" name="sexo" #price="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }" placeholder="Selecione seu sexo">
+              <select name="sexo" id="sexos" class="form-control" [(ngModel)]="pessoa.sexo" #price="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }" placeholder="Selecione seu sexo">
+                <option *ngFor="let sexo of sexos" [value]="sexo.id">
+                  {{ sexo.name }}
+                </option>
+              </select>
               <div *ngIf="f.submitted && price.invalid" class="invalid-feedback">
                   <div *ngIf="price.errors.required">Sexo é obrigatório</div>
-              </div>
+              </div>           
             </div>
             <div class="form-group">
               <label for="price">Habilidades</label>
