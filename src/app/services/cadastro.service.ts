@@ -18,9 +18,9 @@ export class CadastroService {
     .pipe(retry(2), catchError(this.handleError));
   }
 
-  updatePessoa(codigo:number, updateCadastro: Pessoa)
+  updatePessoa(updateCadastro: Pessoa)
   {
-    return this.httpClient.put<Pessoa>(`${endpoints.pessoas}/pessoa/${codigo}/`, updateCadastro)
+    return this.httpClient.put<boolean>(`${methods.editarpessoa}`, updateCadastro)
     .pipe(retry(2), catchError(this.handleError));
   }
 

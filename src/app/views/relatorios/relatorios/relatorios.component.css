@@ -23,3 +23,11 @@
 .ng-autocomplete {
     width: 400px;
 }
+
+.customized-message{
+    background-color: #bfdeff;
+    padding: 7px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 10px;
+}

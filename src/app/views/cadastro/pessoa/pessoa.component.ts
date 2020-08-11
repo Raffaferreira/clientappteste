@@ -9,7 +9,6 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./pessoa.component.css']
 })
 export class PessoaComponent implements OnInit {
-
   pessoa = {} as Pessoa;
   pessoas: Pessoa[];
 

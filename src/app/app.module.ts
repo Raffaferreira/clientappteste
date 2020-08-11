@@ -6,18 +6,19 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { PessoaComponent } from './views/cadastro/pessoa/pessoa.component';
-import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { RelatoriosComponent } from './views/relatorios/relatorios/relatorios.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { JwPaginationModule } from 'jw-angular-pagination';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AtualizarComponent } from './views/atualizar/atualizar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PessoaComponent,
-    DashboardComponent,
-    RelatoriosComponent
+    RelatoriosComponent,
+    AtualizarComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +28,8 @@ import { JwPaginationModule } from 'jw-angular-pagination';
     NgxPaginationModule,
     BrowserAnimationsModule,
     AutocompleteLibModule,
-    JwPaginationModule
+    JwPaginationModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

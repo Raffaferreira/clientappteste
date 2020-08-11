@@ -3,7 +3,8 @@ import { Pessoa } from 'src/app/model/relatorios';
 import { RelatoriosService } from 'src/app/services/relatorios.service';
 import { CadastroService } from 'src/app/services/cadastro.service';
 import { NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AtualizarComponent } from '../../atualizar/atualizar.component';
 
 @Component({
   selector: 'app-relatorios',
@@ -22,7 +23,8 @@ export class RelatoriosComponent implements OnInit {
   sexos = ['Masculino', 'Feminino']
 
   constructor(private relatorioService: RelatoriosService,
-    private cadastroService: CadastroService) { }
+    private cadastroService: CadastroService,
+    private modalService: NgbModal) { }
 
   ngOnInit() {
     this.buscarPessoas();
@@ -43,9 +45,16 @@ export class RelatoriosComponent implements OnInit {
   }
 
   editarPessoa(pessoa: Pessoa){
-    this.cadastroService.updatePessoa(1, pessoa).subscribe((response: Pessoa) => {
-      this.pessoa = response;
-    });
+    const ref = this.modalService.open(AtualizarComponent);
+    ref.componentInstance.pessoa = pessoa;
+    ref.result.then((yes) => {
+      console.log("OK");
+    }, (cancel) => {
+      console.log("Cancel Click");
+    })
+    // this.cadastroService.updatePessoa(1, pessoa).subscribe((response: Pessoa) => {
+    //   this.pessoa = response;
+    // });
   }
 
   deletarPessoa(codigo: number, pessoa: Pessoa){

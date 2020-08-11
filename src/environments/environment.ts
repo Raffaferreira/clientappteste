@@ -16,7 +16,8 @@ export const endpoints = {
 export const methods = {
   cadastrar: endpoints.pessoas + 'cadastrar',
   listadepessoas: endpoints.pessoas + 'getpessoas',
-  deletarpessoa: endpoints.pessoas + 'deletar'
+  deletarpessoa: endpoints.pessoas + 'deletar',
+  editarpessoa: endpoints.pessoas + 'editar'
 }
 
 /*
