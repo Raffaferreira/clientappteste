@@ -12,13 +12,15 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { JwPaginationModule } from 'jw-angular-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AtualizarComponent } from './views/atualizar/atualizar.component';
+import { EmptyComponent } from './empty/empty.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PessoaComponent,
     RelatoriosComponent,
-    AtualizarComponent
+    AtualizarComponent,
+    EmptyComponent
   ],
   imports: [
     BrowserModule,
