@@ -3,7 +3,7 @@ import { Pessoa } from '../model/relatorios';
 import { throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse, HttpHeaders, JsonpInterceptor } from '@angular/common/http';
 import { retry, catchError } from 'rxjs/operators';
-import { methods, endpoints } from 'src/environments/environment';
+import { methods } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'

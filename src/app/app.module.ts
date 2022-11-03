@@ -13,6 +13,8 @@ import { JwPaginationModule } from 'jw-angular-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AtualizarComponent } from './views/atualizar/atualizar.component';
 import { EmptyComponent } from './views/empty/empty.component';
+import { HelpComponent } from './help/help.component';
+import { ExportsComponent } from './views/relatorios/exports/exports.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { EmptyComponent } from './views/empty/empty.component';
     PessoaComponent,
     RelatoriosComponent,
     AtualizarComponent,
-    EmptyComponent
+    EmptyComponent,
+    HelpComponent,
+    ExportsComponent
   ],
   imports: [
     BrowserModule,
